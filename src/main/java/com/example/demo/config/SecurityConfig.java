@@ -17,9 +17,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.csrf().disable()
 		.authorizeRequests()
-        .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll();
+        .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll()
+        .and().headers().frameOptions().sameOrigin();
 	}
-
+    
 	@Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {

@@ -33,10 +33,12 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	@Autowired
+	private ClientProperties client;
 	
 	@Bean
 	public PasswordEncoder encoder() {
-		return new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder(4);
 	}
 
     @Bean
@@ -65,9 +67,10 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
     
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("garbage_app")
-        				  .secret(/*"garbage" */"$2a$04$pvMIM2MPFl0wXH7jneGinOBzpMsDLYgCvQq4TfhE3mSEG5wYTeD1C")
-        				  .scopes("garbage_application")
+    	
+        clients.inMemory().withClient(client.getUsername())
+        				  .secret(client.getSecret())
+        				  .scopes(client.getScopes())
         				  .authorizedGrantTypes("password", "refresh_token")
         				  .accessTokenValiditySeconds(100);
     }

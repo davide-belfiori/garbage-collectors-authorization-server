@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 import lombok.Data;
 
 @Entity
@@ -31,6 +33,7 @@ public class AppUser {
 	
 	@Column(name = "appUser_password")
 	@NotNull
+	@Length(max = 60)
 	private String appUserPassword;
 	
 	@ManyToMany
