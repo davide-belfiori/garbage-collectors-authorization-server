@@ -25,7 +25,7 @@ public class CustomCorsFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         
         res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
         res.setHeader("Access-Control-Max-Age", "3600");
         res.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization");
 
@@ -34,7 +34,6 @@ public class CustomCorsFilter implements Filter {
         } else {
             chain.doFilter(request, response);
         }
-
 	}
 
 }
