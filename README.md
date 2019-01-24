@@ -18,7 +18,7 @@ the active profile to ```spring.profiles.active=production``` inside ```applicat
 
 ### Obtain Token
 
-Once the server has started, send an http POST request to http://localhost:8082/oauth/token in oreder to get a new JWT token, passing client and user credential as the example below :
+Once the server has started, send an http POST request to http://localhost:8082/oauth/token in oreder to get a new JWT token, passing client and user credentials as the example below :
 
 #### Request Authorization:
 <img width="1042" src = https://github.com/davide-belfiori/garbage-collectors-authorization-server/blob/master/sample_images/token_request_authorization_sample.PNG>
