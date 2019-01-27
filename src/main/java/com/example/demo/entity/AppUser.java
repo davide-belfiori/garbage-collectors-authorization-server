@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -43,4 +44,8 @@ public class AppUser {
 	           inverseJoinColumns = @JoinColumn(name = "role_id", 
 	           		referencedColumnName = "role_id"))
 	private Set<Role> roles;
+	
+	@ManyToOne
+	@JoinColumn(name = "app_user_area")
+	private AreaGeografica area;
 }
