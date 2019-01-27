@@ -69,7 +69,7 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
         				  .secret(client.getSecret())
         				  .scopes(client.getScopes())
         				  .authorizedGrantTypes("password", "refresh_token")
-        				  .accessTokenValiditySeconds(100);
+        				  .accessTokenValiditySeconds(900); // validità = 15 minuti
     }
     
     @Override
