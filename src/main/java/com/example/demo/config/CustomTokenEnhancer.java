@@ -11,12 +11,12 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 
 import com.example.demo.entity.AppUser;
-import com.example.demo.repository.AppUserRepository;
+import com.example.demo.repository.RepositoryUtenti;
 
 public class CustomTokenEnhancer implements TokenEnhancer {
 	
 	@Autowired
-	AppUserRepository repo;
+	RepositoryUtenti repo;
 
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
