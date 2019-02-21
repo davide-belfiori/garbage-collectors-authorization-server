@@ -14,13 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.AppUser;
 import com.example.demo.entity.Role;
-import com.example.demo.repository.AppUserRepository;
+import com.example.demo.repository.RepositoryUtenti;
 
 @Service
 public class CustomUserDetalisService implements UserDetailsService {
 
 	@Autowired
-	AppUserRepository repo;
+	RepositoryUtenti repo;
 	
 	@Override
 	@Transactional
